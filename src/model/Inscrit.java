@@ -42,15 +42,15 @@ public class Inscrit {
 	public void follow(final Inscrit following) {
 		this.followings.add(following);
 
+
 		following.followers.add(this);
 	}
 
 	public void unfollow(final Inscrit following) {
 	}
 	
-	//David
+	//David not checked
 	public boolean creerUnEvenement(final String nom, final Date dateDebut, final Date dateFin, final Lieu localisation, final Theme theme, final List<Inscrit> invites, final boolean estPrive, final String description, final int placesDisponibles, final List<Photo> photos, final boolean estAnnule) {
-        creerUnEvenement(nom,dateDebut,dateFin,localisation,theme, invites, estPrive, description, placesDisponibles, photos, estAnnule){
         
         
               //Vérification des différents paramètres

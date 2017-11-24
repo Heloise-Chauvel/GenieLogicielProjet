@@ -160,7 +160,7 @@ public class Gestion {
 	}
 
 	public void afficherEvenement(final Evenement evenement) {
-		System.out.println(e);
+		System.out.println(evenement);
 
 		//Demande Ã  l'utilisateur s'il veut participer Ã  l'Ã©vÃ©nement
 
@@ -178,7 +178,8 @@ public class Gestion {
 		// TODO Auto-generated return
 		return false;
 	}
-	 //David
+	
+	//David
 	public Inscrit rechercherProfilParUsername(final String username) {
         // TODO Auto-generated return
     	Inscrit user = null;
@@ -190,6 +191,7 @@ public class Gestion {
     	
         return user;
     }
+
 	 //David
     public Inscrit rechercherProfilParEmail(final String email) {
         // TODO Auto-generated return
@@ -202,6 +204,7 @@ public class Gestion {
     	
         return user;
     }
+
     //David
     public Inscrit rechercherProfilParLogin(final String login) {
         // TODO Auto-generated return
@@ -215,6 +218,7 @@ public class Gestion {
         return user;
        
     }
+
     //David
     public Inscrit rechercherProfilParNumero(final long numero) {
         // TODO Auto-generated return
