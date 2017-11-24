@@ -4,6 +4,8 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
+import system.Gestion;
+
 public class Evenement {
     private String nom;
 
@@ -30,9 +32,19 @@ public class Evenement {
     private Theme theme;
 
     private List<Photo> photos = new ArrayList<Photo> ();
-
+    
+    //ROBIN DONE NOT CHECKED
     public boolean isOrganisateur(final String login) {
-        // TODO Auto-generated return
+    	Inscrit user= new Inscrit();
+    	Gestion gestion = gestion.getInstance();
+    	user=gestion.rechercherProfilParLogin(login);
+        ArrayList<Evenement> listeEvenement= new ArrayList<Evenement>();
+        listeEvenement=(ArrayList<Evenement>) user.getEvenementsOrganises();
+        for(Evenement event : listeEvenement) {
+        	if(this.equals(event)) {
+        		return true;
+        	}
+        }
         return false;
     }
 

@@ -47,26 +47,53 @@ public class Gestion {
         // TODO Auto-generated return
         return false;
     }
-
+    
+    //ROBIN
     public boolean checkNumber(final long number) {
         // TODO Auto-generated return
         return false;
     }
 
-    public boolean checkLogin(final String login) {
-        // TODO Auto-generated return
-        return false;
-    }
+  //ROBIN DONE NOT CHECKED
+  	public boolean checkEmail(final String email) {
+  		if( email!=null && email.trim().length()>0 )
+  			return email.matches("^[a-zA-Z0-9\\.\\-\\_]+@([a-zA-Z0-9\\-\\_\\.]+\\.)+([a-zA-Z]{2,4})$");
+  		return false;
+  	}
 
-    public boolean checkUsername(final String username) {
-        // TODO Auto-generated return
-        return false;
-    }
 
-    public boolean checkPasswd(final String passwd) {
-        // TODO Auto-generated return
-        return false;
-    }
+  	//ROBIN DONE NOT CHECKED
+  	public boolean checkLogin(final String login) {
+  		for (Inscrit inscrit : inscrits) {
+  			if (inscrit.getLogin()==login) {
+  				return false;
+  			}
+  		}
+  		return true;
+  	}
+
+  	//ROBIN DONE NOT CHECKED
+  	public boolean checkUsername(final String username) {
+  		for (Inscrit inscrit : inscrits) {
+  			if (inscrit.getUsername()==username) {
+  				return false;
+  			}
+  		}
+  		return true;
+  	}
+  	//ROBIN DONE NOT CHECKED
+  	public boolean checkPasswd(final String passwd) {
+  		if( passwd!=null && passwd.trim().length()>0 )   //true
+  			if (passwd.matches("^@([a-zA-Z0-9])$") ) {   //true
+  				for (Inscrit inscrit : inscrits) {
+  					if (inscrit.getPassword()==passwd) { //false !
+  						return false;
+  					}
+  				}
+  			}
+  		return false;
+
+  	}
 
     //Héloïse
     public boolean seConnecter(final String email, final String password) {
