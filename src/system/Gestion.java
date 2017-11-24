@@ -25,30 +25,19 @@ public class Gestion {
 	//ROBIN DONE NOT VERIFIED
 	public boolean sInscrire(final String email, final String login, final String username, final String password) {
 		if(checkEmail(email) && checkLogin(login) && checkUsername(username) && checkPasswd(password)){
-
 			this.inscrits.add(new Inscrit(email, login, username, password));
-
 			return true;
-
 		} else{
-
 			return false;
-
 		}
-
 	}
 	//ROBIN DONE NOT VERIFIED
 	public boolean sInscrire(final long numero, final String login, final String username, final String password) {
 		if(checkNumber(numero) && checkLogin(login) && checkUsername(username) && checkPasswd(password)){
-
 			this.inscrits.add(new Inscrit(numero, login, username, password));
-
 			return true;
-
 		} else{
-
 			return false;
-
 		}
 	}
 
