@@ -41,16 +41,18 @@ public class Gestion {
 		}
 	}
 
-	public boolean checkEmail(final String email) {
-		// TODO Auto-generated return
+
+
+	//ROBIN DONE NOT CHECKED
+	public boolean checkNumber(final long number) {
+		for (Inscrit inscrit : inscrits) {
+			if (inscrit.getNumero()==number) {
 				return false;
+			}
+		}
+		return true;
 	}
 
-	//ROBIN
-	public boolean checkNumber(final long number) {
-		// TODO Auto-generated return
-				return false;
-	}
 
 	//ROBIN DONE NOT CHECKED
 	public boolean checkEmail(final String email) {
@@ -103,6 +105,7 @@ public class Gestion {
 			} else{
 				return false;
 			}
+
 		} else{
 			System.err.println("Ce mail ne correspond à aucun membre existant !");
 			return false;
@@ -133,19 +136,9 @@ public class Gestion {
 			return false;
 		}
 	}
-	
-	//David
-    public void afficherProfil(final Inscrit inscrit) {
-    	
-    	System.out.println(inscrit);
-    }
 
-	public boolean modifierUnProfil(final Inscrit profilAModifier, final String email, final long numero, final String username, final String passwd, final String description) {
-		// TODO Auto-generated return
-		return false;
-	}
-
-	public void participerAEvenement(final Evenement evenement, final Inscrit participant) {
+	public void afficherProfil(final Inscrit inscrit) {
+		System.out.println(inscrit);
 	}
 
 	public void afficherEvenement(final Evenement evenement) {
@@ -156,70 +149,84 @@ public class Gestion {
 		//Si true
 
 		//Appel Ã  participerEvenement()
+	}
+
+	public boolean modifierUnProfil(final Inscrit profilAModifier, final String email, final long numero, final String username, final String passwd, final String description) {
+		// TODO Auto-generated return
+		return false;
+	}
+
+	public void participerAEvenement(final Evenement evenement, final Inscrit participant) {
 
 	}
+
+
+
+	//David
+	public Inscrit rechercherProfilParUsername(final String username) {
+		// TODO Auto-generated return
+		Inscrit user = null;
+		for(Inscrit inscrit: inscrits){
+			if(inscrit.getUsername().equals(username)){
+				user = inscrit;
+			}
+		}
+
+		return user;
+	}
+
+	//David
+	public Inscrit rechercherProfilParEmail(final String email) {
+		// TODO Auto-generated return
+		Inscrit user = null;
+		for(Inscrit inscrit: inscrits){
+			if(inscrit.getEmail().equals(email)){
+				user = inscrit;
+			}
+		}
+
+		return user;
+	}
+
+	//David
+	public Inscrit rechercherProfilParLogin(final String login) {
+		// TODO Auto-generated return
+		Inscrit user = null;
+		for(Inscrit inscrit: inscrits){
+			if(inscrit.getLogin().equals(login)){
+				user = inscrit;
+			}
+		}
+
+		return user;
+
+	}
+
+	//David
+	public Inscrit rechercherProfilParNumero(final long numero) {
+		// TODO Auto-generated return
+		Inscrit user = null;
+		for(Inscrit inscrit: inscrits){
+			if(inscrit.getNumero()==numero){
+				user = inscrit;
+			}
+		}
+
+		return user;
+	}
+
+
 
 	public void ajouterEvenement(final Evenement e) {
 		this.evenements.add(e);
 	}
 
+
 	public boolean rechercherUnEvenement(final String nom, final Date dateDebut, final Date dateFin, final Lieu localisation, final Theme theme, final List<Inscrit> invites, final boolean estPrive, final String description, final int placesDisponibles, final List<Photo> photos, final boolean estAnnule) {
 		// TODO Auto-generated return
 		return false;
 	}
-	
-	//David
-	public Inscrit rechercherProfilParUsername(final String username) {
-        // TODO Auto-generated return
-    	Inscrit user = null;
-    	for(Inscrit inscrit: inscrits){
-    		if(inscrit.getUsername().equals(username)){
-    			user = inscrit;
-    		}
-    	}
-    	
-        return user;
-    }
 
-	 //David
-    public Inscrit rechercherProfilParEmail(final String email) {
-        // TODO Auto-generated return
-    	Inscrit user = null;
-    	for(Inscrit inscrit: inscrits){
-    		if(inscrit.getEmail().equals(email)){
-    			user = inscrit;
-    		}
-    	}
-    	
-        return user;
-    }
-
-    //David
-    public Inscrit rechercherProfilParLogin(final String login) {
-        // TODO Auto-generated return
-    	Inscrit user = null;
-    	for(Inscrit inscrit: inscrits){
-    		if(inscrit.getLogin().equals(login)){
-    			user = inscrit;
-    		}
-    	}
-    	
-        return user;
-       
-    }
-
-    //David
-    public Inscrit rechercherProfilParNumero(final long numero) {
-        // TODO Auto-generated return
-    	Inscrit user = null;
-    	for(Inscrit inscrit: inscrits){
-    		if(inscrit.getNumero()==numero){
-    			user = inscrit;
-    		}
-    	}
-    	
-        return user;
-    }
 
 
 	public boolean envoyerUnEmail(final String email, final String message) {
