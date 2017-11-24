@@ -20,8 +20,7 @@ public class Gestion {
     }
 
     public static Gestion getInstance() {
-        // TODO Auto-generated return
-        return null;
+        return Instance;
     }
 
     public boolean sInscrire(final String email, final String login, final String username, final String password) {
@@ -69,48 +68,45 @@ public class Gestion {
         return false;
     }
 
+    //Héloïse
     public boolean seConnecter(final String email, final String password) {
-        Inscrit inscrit = rechercherParEmail(email);
-        
-                if(inscrit != null){
-        
-                      if(inscrit.checkPasswordConcordance(password)){
-        
-                             return true;
-        
-                      } else{
-        
-                            return false;
-        
-                      }
-        
-                } else{
-        
-                     System.err.println("Ce mail ne correspond Ã  aucun membre existant !");
-        
-                     return false;
-        
-                }
-        
-    }
+        Inscrit inscrit = rechercherProfilParEmail(email);
 
-    public boolean seConnecter(final long numero, final String password) {
-        // TODO Auto-generated return
-        return false;
-    }
-
-    public boolean checkPasswordConcordance(final String passwordEntered) {
-               if(this.password.equals(password)){
-        
+        if(inscrit != null){
+              if(checkPasswordConcordance(password)){
                      return true;
-        
-                else{
-        
-                     System.err.println("Le mot de passe ne correspond pas !");
-        
-                     return false;
-        
-                }
+              } else{
+                    return false;
+              }
+        } else{
+             System.err.println("Ce mail ne correspond à aucun membre existant !");
+             return false;
+        }        
+    }
+
+    //Héloïse
+    public boolean seConnecter(final long numero, final String password) {
+    	Inscrit inscrit = rechercherProfilParNumero(numero);
+        if(inscrit != null){
+              if(checkPasswordConcordance(password)){
+                     return true;
+              } else{
+                    return false;
+              }
+        } else{
+             System.err.println("Ce mail ne correspond à aucun membre existant !");
+             return false;
+        }
+    }
+
+    //Héloïse
+    public boolean checkPasswordConcordance(final String passwordEntered, final Inscrit inscrit) {
+       if(inscrit.getPassword().equals(passwordEntered)){
+             return true;
+       }else{
+             System.err.println("Le mot de passe ne correspond pas !");
+             return false;
+        }
     }
 
     public void afficherProfil(final Inscrit inscrit) {
@@ -144,24 +140,60 @@ public class Gestion {
         return false;
     }
 
+    //Héloïse
     public Inscrit rechercherProfilParUsername(final String username) {
-        // TODO Auto-generated return
-        return null;
+    	Inscrit i = new Inscrit();
+    	for(Inscrit inscrit : inscrits) {
+    		if(inscrit.getUsername() == username) {
+    			i = inscrit;
+    		}
+    		else {
+    			i = null;
+    		}
+    	}
+    	return i;
     }
 
+    //Héloïse
     public Inscrit rechercherProfilParEmail(final String email) {
-        // TODO Auto-generated return
-        return null;
+    	Inscrit i = new Inscrit();
+    	for(Inscrit inscrit : inscrits) {
+    		if(inscrit.getEmail() == email) {
+    			i = inscrit;
+    		}
+    		else {
+    			i = null;
+    		}
+    	}
+    	return i;
     }
 
+    //Héloïse
     public Inscrit rechercherProfilParLogin(final String login) {
-        // TODO Auto-generated return
-        return null;
+    	Inscrit i = new Inscrit();
+    	for(Inscrit inscrit : inscrits) {
+    		if(inscrit.getLogin() == login) {
+    			i = inscrit;
+    		}
+    		else {
+    			i = null;
+    		}
+    	}
+    	return i;
     }
 
+    //Héloïse
     public Inscrit rechercherProfilParNumero(final long numero) {
-        // TODO Auto-generated return
-        return null;
+    	Inscrit i = new Inscrit();
+    	for(Inscrit inscrit : inscrits) {
+    		if(inscrit.getNumero() == numero) {
+    			i = inscrit;
+    		}
+    		else {
+    			i = null;
+    		}
+    	}
+    	return i;
     }
 
     public boolean envoyerUnEmail(final String email, final String message) {
