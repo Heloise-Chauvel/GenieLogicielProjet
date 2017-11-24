@@ -47,27 +47,28 @@ public class Inscrit {
 
 	public void unfollow(final Inscrit following) {
 	}
-
+	
+	//David
 	public boolean creerUnEvenement(final String nom, final Date dateDebut, final Date dateFin, final Lieu localisation, final Theme theme, final List<Inscrit> invites, final boolean estPrive, final String description, final int placesDisponibles, final List<Photo> photos, final boolean estAnnule) {
-		creerUnEvenement(String nom, DateTime dateDebut, DateTime dateFin, Lieu localisation, Theme theme, ArrayList<Inscrit> invites, boolean estPrive, String description, int placesDisponibles, ArrayList<Photo> photos, boolean estPrive){
-
-
-			//Vérification des différents paramètres
-
-			Evenement e =  new Evenement(nom, dateDebut, dateFin, ...);
-
-			Gestion g = g.getInstance();
-
-			//On ajoute l'événement à la liste totale d'événement du singleton Gestion
-
-			g.ajouterEvenement(e);
-
-			//On ajoute l'évenement dans la liste d'événements organisés par l'utilisateur
-
-			this.evenementsOrganises.add(e);
-
-		}
-	}
+        creerUnEvenement(nom,dateDebut,dateFin,localisation,theme, invites, estPrive, description, placesDisponibles, photos, estAnnule){
+        
+        
+              //Vérification des différents paramètres
+        
+              Evenement e =  new Evenement(nom,dateDebut,dateFin,localisation,theme,invites,estPrive,description,placesDisponibles,photos,estAnnule);
+              
+              Gestion g = g.getInstance();
+        
+               //On ajoute l'événement à la liste totale d'événement du singleton Gestion
+        
+               g.ajouterEvenement(e);
+        
+               //On ajoute l'évenement dans la liste d'événements organisés par l'utilisateur
+        
+               this.evenementsOrganises.add(e);
+               System.out.println("L'�v�nement "+ nom + "a �t� cr�er");
+        }
+    }
 	//ROBIN DONE NOT VERIFIED
 	public boolean modifierUnEvenement(final Evenement evtAModifier, final String nom, final Date dateDebut, final Date dateFin, final Lieu localisation, final Theme theme, final List<Inscrit> invites, final boolean estPrive, final String description, final int placesDisponibles, final List<Photo> photos, final boolean estAnnule) {
 		if(evtAModifier.isOrganisateur(this.getLogin())) {
@@ -215,4 +216,14 @@ public class Inscrit {
 		this.followers = value;
 	}
 
+	@Override
+	public String toString() {
+		return "Inscrit [email=" + email + ", numero=" + numero + ", login=" + login + ", username=" + username
+				+ ", password=" + password + ", description=" + description + ", evenementsOrganises="
+				+ evenementsOrganises + ", evenementsProposes=" + evenementsProposes + ", evenementsParticipes="
+				+ evenementsParticipes + ", themesPreferes=" + themesPreferes + ", photo=" + photo + ", followings="
+				+ followings + "]";
+	}
+	
+	
 }

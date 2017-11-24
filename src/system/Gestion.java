@@ -144,9 +144,12 @@ public class Gestion {
 			return false;
 		}
 	}
-
-	public void afficherProfil(final Inscrit inscrit) {
-	}
+	
+	//David
+    public void afficherProfil(final Inscrit inscrit) {
+    	
+    	System.out.println(inscrit);
+    }
 
 	public boolean modifierUnProfil(final Inscrit profilAModifier, final String email, final long numero, final String username, final String passwd, final String description) {
 		// TODO Auto-generated return
@@ -175,7 +178,55 @@ public class Gestion {
 		// TODO Auto-generated return
 		return false;
 	}
-
+	 //David
+	public Inscrit rechercherProfilParUsername(final String username) {
+        // TODO Auto-generated return
+    	Inscrit user = null;
+    	for(Inscrit inscrit: inscrits){
+    		if(inscrit.getUsername().equals(username)){
+    			user = inscrit;
+    		}
+    	}
+    	
+        return user;
+    }
+	 //David
+    public Inscrit rechercherProfilParEmail(final String email) {
+        // TODO Auto-generated return
+    	Inscrit user = null;
+    	for(Inscrit inscrit: inscrits){
+    		if(inscrit.getEmail().equals(email)){
+    			user = inscrit;
+    		}
+    	}
+    	
+        return user;
+    }
+    //David
+    public Inscrit rechercherProfilParLogin(final String login) {
+        // TODO Auto-generated return
+    	Inscrit user = null;
+    	for(Inscrit inscrit: inscrits){
+    		if(inscrit.getLogin().equals(login)){
+    			user = inscrit;
+    		}
+    	}
+    	
+        return user;
+       
+    }
+    //David
+    public Inscrit rechercherProfilParNumero(final long numero) {
+        // TODO Auto-generated return
+    	Inscrit user = null;
+    	for(Inscrit inscrit: inscrits){
+    		if(inscrit.getNumero()==numero){
+    			user = inscrit;
+    		}
+    	}
+    	
+        return user;
+    }
 
 
 	public boolean envoyerUnEmail(final String email, final String message) {
