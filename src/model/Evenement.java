@@ -47,10 +47,10 @@ public class Evenement {
         }
         return false;
     }
-
+    
+    // THIERRY DONE
     public boolean estPlein() {
-        // TODO Auto-generated return
-        return false;
+    	return this.placesDisponibles-this.invites.size()<=0;
     }
 
     // THIERRY DONE
