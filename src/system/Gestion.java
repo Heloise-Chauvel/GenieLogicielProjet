@@ -242,14 +242,14 @@ public class Gestion {
 	public void ajouterInscrit(final Inscrit i) {
 	}
 
-	public Evenement getEvenement() {
+	public List<Evenement> getEvenements() {
 		// Automatically generated method. Please delete this comment before entering specific code.
-		return this.evenement;
+		return this.evenements;
 	}
 
 	public void setEvenement(final Evenement value) {
 		// Automatically generated method. Please delete this comment before entering specific code.
-		this.evenement = value;
+		this.evenements.add(value);
 	}
 
 }

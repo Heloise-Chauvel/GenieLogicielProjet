@@ -3,189 +3,210 @@ package model;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
-
 import system.Gestion;
 
 public class Evenement {
-    private String nom;
+	private String nom;
 
-    private Date dateDebut;
+	private Date dateDebut;
 
-    private Date dateFin;
+	private Date dateFin;
 
-    private boolean estPrive;
+	private boolean estPrive;
 
-    private String description;
+	private String description;
 
-    private int placesDisponibles;
+	private int placesDisponibles;
 
-    private boolean estAnnule;
+	private boolean estAnnule;
 
-    private Inscrit organisateur;
 
-    private List<Inscrit> invites = new ArrayList<Inscrit> ();
 
-    private List<Inscrit> participants = new ArrayList<Inscrit> ();
+	private Inscrit organisateur;
 
-    private Lieu lieu;
+	private List<Inscrit> invites = new ArrayList<Inscrit> ();
 
-    private Theme theme;
+	private List<Inscrit> participants = new ArrayList<Inscrit> ();
 
-    private List<Photo> photos = new ArrayList<Photo> ();
-    
-    //ROBIN DONE NOT CHECKED
-    public boolean isOrganisateur(final String login) {
-    	Inscrit user= new Inscrit();
-    	Gestion gestion = gestion.getInstance();
-    	user=gestion.rechercherProfilParLogin(login);
-        ArrayList<Evenement> listeEvenement= new ArrayList<Evenement>();
-        listeEvenement=(ArrayList<Evenement>) user.getEvenementsOrganises();
-        for(Evenement event : listeEvenement) {
-        	if(this.equals(event)) {
-        		return true;
-        	}
-        }
-        return false;
-    }
-    
-    // THIERRY DONE
-    public boolean estPlein() {
-    	return this.placesDisponibles-this.invites.size()<=0;
-    }
+	private Lieu lieu;
 
-    // THIERRY DONE
-    public void ajouterParticipant(final Inscrit participant) {
-    	this.participants.add(participant);
-    }
+	private Theme theme;
 
-    public String getNom() {
-        // Automatically generated method. Please delete this comment before entering specific code.
-        return this.nom;
-    }
+	private List<Photo> photos = new ArrayList<Photo> ();
 
-    public void setNom(final String value) {
-        // Automatically generated method. Please delete this comment before entering specific code.
-        this.nom = value;
-    }
+	public Evenement(String nom, Date dateDebut, Date dateFin, Lieu localisation, Theme theme,
+			List<Inscrit> invites, boolean estPrive, String description, int placesDisponibles, List<Photo> photos,
+			boolean estAnnule) {
+		this.nom=nom;
+		this.dateDebut=dateDebut;
+		this.dateFin=dateFin;
+		this.lieu=localisation;
+		this.theme=theme;
+		this.invites=invites;
+		this.estPrive=estPrive;
+		this.description=description;
+		this.placesDisponibles=placesDisponibles;
+		this.photos=photos;
+		this.estAnnule=estAnnule;
 
-    public void setDateDebut(final Date value) {
-        // Automatically generated method. Please delete this comment before entering specific code.
-        this.dateDebut = value;
-    }
 
-    public Date getDateDebut() {
-        // Automatically generated method. Please delete this comment before entering specific code.
-        return this.dateDebut;
-    }
 
-    public Date getDateFin() {
-        // Automatically generated method. Please delete this comment before entering specific code.
-        return this.dateFin;
-    }
 
-    public void setDateFin(final Date value) {
-        // Automatically generated method. Please delete this comment before entering specific code.
-        this.dateFin = value;
-    }
+	}
 
-    public boolean isEstPrive() {
-        // Automatically generated method. Please delete this comment before entering specific code.
-        return this.estPrive;
-    }
+	//ROBIN DONE NOT CHECKED
+	public boolean isOrganisateur(final String login) {
+		Inscrit user=null;
+		Gestion gestion = Gestion.getInstance();
+		user=gestion.rechercherProfilParLogin(login);
+		ArrayList<Evenement> listeEvenement= new ArrayList<Evenement>();
+		listeEvenement=(ArrayList<Evenement>) user.getEvenementsOrganises();
+		for(Evenement event : listeEvenement) {
+			if(this.equals(event)) {
+				return true;
+			}
+		}
+		return false;
+	}
 
-    public void setEstPrive(final boolean value) {
-        // Automatically generated method. Please delete this comment before entering specific code.
-        this.estPrive = value;
-    }
+	// THIERRY DONE
+	public boolean estPlein() {
+		return this.placesDisponibles-this.invites.size()<=0;
+	}
 
-    public String getDescription() {
-        // Automatically generated method. Please delete this comment before entering specific code.
-        return this.description;
-    }
+	// THIERRY DONE
+	public void ajouterParticipant(final Inscrit participant) {
+		this.participants.add(participant);
+	}
 
-    public void setDescription(final String value) {
-        // Automatically generated method. Please delete this comment before entering specific code.
-        this.description = value;
-    }
+	public String getNom() {
+		// Automatically generated method. Please delete this comment before entering specific code.
+		return this.nom;
+	}
 
-    public void setPlacesDisponibles(final int value) {
-        // Automatically generated method. Please delete this comment before entering specific code.
-        this.placesDisponibles = value;
-    }
+	public void setNom(final String value) {
+		// Automatically generated method. Please delete this comment before entering specific code.
+		this.nom = value;
+	}
 
-    public int getPlacesDisponibles() {
-        // Automatically generated method. Please delete this comment before entering specific code.
-        return this.placesDisponibles;
-    }
+	public void setDateDebut(final Date value) {
+		// Automatically generated method. Please delete this comment before entering specific code.
+		this.dateDebut = value;
+	}
 
-    public void setEstAnnule(final boolean value) {
-        // Automatically generated method. Please delete this comment before entering specific code.
-        this.estAnnule = value;
-    }
+	public Date getDateDebut() {
+		// Automatically generated method. Please delete this comment before entering specific code.
+		return this.dateDebut;
+	}
 
-    public boolean isEstAnnule() {
-        // Automatically generated method. Please delete this comment before entering specific code.
-        return this.estAnnule;
-    }
+	public Date getDateFin() {
+		// Automatically generated method. Please delete this comment before entering specific code.
+		return this.dateFin;
+	}
 
-    public Inscrit getOrganisateur() {
-        // Automatically generated method. Please delete this comment before entering specific code.
-        return this.organisateur;
-    }
+	public void setDateFin(final Date value) {
+		// Automatically generated method. Please delete this comment before entering specific code.
+		this.dateFin = value;
+	}
 
-    public void setOrganisateur(final Inscrit value) {
-        // Automatically generated method. Please delete this comment before entering specific code.
-        this.organisateur = value;
-    }
+	public boolean isEstPrive() {
+		// Automatically generated method. Please delete this comment before entering specific code.
+		return this.estPrive;
+	}
 
-    public List<Inscrit> getInvites() {
-        // Automatically generated method. Please delete this comment before entering specific code.
-        return this.invites;
-    }
+	public void setEstPrive(final boolean value) {
+		// Automatically generated method. Please delete this comment before entering specific code.
+		this.estPrive = value;
+	}
 
-    public void setInvites(final List<Inscrit> value) {
-        // Automatically generated method. Please delete this comment before entering specific code.
-        this.invites = value;
-    }
+	public String getDescription() {
+		// Automatically generated method. Please delete this comment before entering specific code.
+		return this.description;
+	}
 
-    public List<Inscrit> getParticipants() {
-        // Automatically generated method. Please delete this comment before entering specific code.
-        return this.participants;
-    }
+	public void setDescription(final String value) {
+		// Automatically generated method. Please delete this comment before entering specific code.
+		this.description = value;
+	}
 
-    public void setParticipants(final List<Inscrit> value) {
-        // Automatically generated method. Please delete this comment before entering specific code.
-        this.participants = value;
-    }
+	public void setPlacesDisponibles(final int value) {
+		// Automatically generated method. Please delete this comment before entering specific code.
+		this.placesDisponibles = value;
+	}
 
-    public Lieu getLieu() {
-        // Automatically generated method. Please delete this comment before entering specific code.
-        return this.lieu;
-    }
+	public int getPlacesDisponibles() {
+		// Automatically generated method. Please delete this comment before entering specific code.
+		return this.placesDisponibles;
+	}
 
-    public void setLieu(final Lieu value) {
-        // Automatically generated method. Please delete this comment before entering specific code.
-        this.lieu = value;
-    }
+	public void setEstAnnule(final boolean value) {
+		// Automatically generated method. Please delete this comment before entering specific code.
+		this.estAnnule = value;
+	}
 
-    public Theme getTheme() {
-        // Automatically generated method. Please delete this comment before entering specific code.
-        return this.theme;
-    }
+	public boolean isEstAnnule() {
+		// Automatically generated method. Please delete this comment before entering specific code.
+		return this.estAnnule;
+	}
 
-    public void setTheme(final Theme value) {
-        // Automatically generated method. Please delete this comment before entering specific code.
-        this.theme = value;
-    }
+	public Inscrit getOrganisateur() {
+		// Automatically generated method. Please delete this comment before entering specific code.
+		return this.organisateur;
+	}
 
-    public List<Photo> getPhotos() {
-        // Automatically generated method. Please delete this comment before entering specific code.
-        return this.photos;
-    }
+	public void setOrganisateur(final Inscrit value) {
+		// Automatically generated method. Please delete this comment before entering specific code.
+		this.organisateur = value;
+	}
 
-    public void setPhotos(final List<Photo> value) {
-        // Automatically generated method. Please delete this comment before entering specific code.
-        this.photos = value;
-    }
+	public List<Inscrit> getInvites() {
+		// Automatically generated method. Please delete this comment before entering specific code.
+		return this.invites;
+	}
+
+	public void setInvites(final List<Inscrit> value) {
+		// Automatically generated method. Please delete this comment before entering specific code.
+		this.invites = value;
+	}
+
+	public List<Inscrit> getParticipants() {
+		// Automatically generated method. Please delete this comment before entering specific code.
+		return this.participants;
+	}
+
+	public void setParticipants(final List<Inscrit> value) {
+		// Automatically generated method. Please delete this comment before entering specific code.
+		this.participants = value;
+	}
+
+	public Lieu getLieu() {
+		// Automatically generated method. Please delete this comment before entering specific code.
+		return this.lieu;
+	}
+
+	public void setLieu(final Lieu value) {
+		// Automatically generated method. Please delete this comment before entering specific code.
+		this.lieu = value;
+	}
+
+	public Theme getTheme() {
+		// Automatically generated method. Please delete this comment before entering specific code.
+		return this.theme;
+	}
+
+	public void setTheme(final Theme value) {
+		// Automatically generated method. Please delete this comment before entering specific code.
+		this.theme = value;
+	}
+
+	public List<Photo> getPhotos() {
+		// Automatically generated method. Please delete this comment before entering specific code.
+		return this.photos;
+	}
+
+	public void setPhotos(final List<Photo> value) {
+		// Automatically generated method. Please delete this comment before entering specific code.
+		this.photos = value;
+	}
 
 }
