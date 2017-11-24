@@ -88,7 +88,7 @@ public class Gestion {
     public boolean seConnecter(final long numero, final String password) {
     	Inscrit inscrit = rechercherProfilParNumero(numero);
         if(inscrit != null){
-              if(checkPasswordConcordance(password)){
+              if(checkPasswordConcordance(password, inscrit)){
                      return true;
               } else{
                     return false;
