@@ -68,23 +68,23 @@ public class Gestion {
         return false;
     }
 
-    //Héloïse
+    //HÃ©loÃ¯se
     public boolean seConnecter(final String email, final String password) {
         Inscrit inscrit = rechercherProfilParEmail(email);
 
         if(inscrit != null){
-              if(checkPasswordConcordance(password)){
+              if(checkPasswordConcordance(password, inscrit)){
                      return true;
               } else{
                     return false;
               }
         } else{
-             System.err.println("Ce mail ne correspond à aucun membre existant !");
+             System.err.println("Ce mail ne correspond Ã  aucun membre existant !");
              return false;
         }        
     }
 
-    //Héloïse
+    //HÃ©loÃ¯se
     public boolean seConnecter(final long numero, final String password) {
     	Inscrit inscrit = rechercherProfilParNumero(numero);
         if(inscrit != null){
@@ -94,12 +94,12 @@ public class Gestion {
                     return false;
               }
         } else{
-             System.err.println("Ce mail ne correspond à aucun membre existant !");
+             System.err.println("Ce mail ne correspond Ã  aucun membre existant !");
              return false;
         }
     }
 
-    //Héloïse
+    //HÃ©loÃ¯se
     public boolean checkPasswordConcordance(final String passwordEntered, final Inscrit inscrit) {
        if(inscrit.getPassword().equals(passwordEntered)){
              return true;
@@ -123,11 +123,11 @@ public class Gestion {
     public void afficherEvenement(final Evenement evenement) {
         System.out.println(e);
         
-        //Demande Ã  l'utilisateur s'il veut participer Ã  l'Ã©vÃ©nement
+        //Demande ÃƒÂ  l'utilisateur s'il veut participer ÃƒÂ  l'ÃƒÂ©vÃƒÂ©nement
         
         //Si true
         
-        //Appel Ã  participerEvenement()
+        //Appel ÃƒÂ  participerEvenement()
         
     }
 
@@ -140,7 +140,7 @@ public class Gestion {
         return false;
     }
 
-    //Héloïse
+    //HÃ©loÃ¯se
     public Inscrit rechercherProfilParUsername(final String username) {
     	Inscrit i = new Inscrit();
     	for(Inscrit inscrit : inscrits) {
@@ -154,7 +154,7 @@ public class Gestion {
     	return i;
     }
 
-    //Héloïse
+    //HÃ©loÃ¯se
     public Inscrit rechercherProfilParEmail(final String email) {
     	Inscrit i = new Inscrit();
     	for(Inscrit inscrit : inscrits) {
@@ -168,7 +168,7 @@ public class Gestion {
     	return i;
     }
 
-    //Héloïse
+    //HÃ©loÃ¯se
     public Inscrit rechercherProfilParLogin(final String login) {
     	Inscrit i = new Inscrit();
     	for(Inscrit inscrit : inscrits) {
@@ -182,7 +182,7 @@ public class Gestion {
     	return i;
     }
 
-    //Héloïse
+    //HÃ©loÃ¯se
     public Inscrit rechercherProfilParNumero(final long numero) {
     	Inscrit i = new Inscrit();
     	for(Inscrit inscrit : inscrits) {
