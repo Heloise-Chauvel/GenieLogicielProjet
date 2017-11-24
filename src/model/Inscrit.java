@@ -29,7 +29,7 @@ public class Inscrit {
 
     private List<Inscrit> followings = new ArrayList<Inscrit> ();
 
-    private List<Inscrit> followers = new ArrayList<Inscrit> ();
+    private static List<Inscrit> followers = new ArrayList<Inscrit> ();
 
     public Inscrit(final String email, final String login, final String username, final String password) {
     }
@@ -173,6 +173,41 @@ public class Inscrit {
     public void setFollowings(final List<Inscrit> value) {
         // Automatically generated method. Please delete this comment before entering specific code.
         this.followings = value;
+    }
+
+    public List<Evenement> getEvenementsOrganises() {
+        // Automatically generated method. Please delete this comment before entering specific code.
+        return this.evenementsOrganises;
+    }
+
+    public void setEvenementsOrganises(final List<Evenement> value) {
+        // Automatically generated method. Please delete this comment before entering specific code.
+        this.evenementsOrganises = value;
+    }
+
+    public List<Evenement> getEvenementsProposes() {
+        // Automatically generated method. Please delete this comment before entering specific code.
+        return this.evenementsProposes;
+    }
+
+    public void setEvenementsProposes(final List<Evenement> value) {
+        // Automatically generated method. Please delete this comment before entering specific code.
+        this.evenementsProposes = value;
+    }
+
+    public List<Evenement> getEvenementsParticipes() {
+        // Automatically generated method. Please delete this comment before entering specific code.
+        return this.evenementsParticipes;
+    }
+
+    public void setEvenementsParticipes(final List<Evenement> value) {
+        // Automatically generated method. Please delete this comment before entering specific code.
+        this.evenementsParticipes = value;
+    }
+
+    public void setFollowers(final List<Inscrit> value) {
+        // Automatically generated method. Please delete this comment before entering specific code.
+        this.followers = value;
     }
 
 }
