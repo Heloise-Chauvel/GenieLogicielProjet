@@ -53,7 +53,9 @@ public class Evenement {
         return false;
     }
 
+    // THIERRY DONE
     public void ajouterParticipant(final Inscrit participant) {
+    	this.participants.add(participant);
     }
 
     public String getNom() {
